@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problems02</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p># Problem set 2</p>
+<h3 id="problem-to-submit">Problem to submit</h3>
+<ul>
+<li><p><strong>Count words</strong> (CountWords.java). Write a program that reads all words in a file (specified as the first argument) and prints out, for each word, the line numbers on which the word occurred. This output should also be written to a second file (specified as the second argument). If the number of provided arguments is not 2 or the specified arguments can’t be opened as files, your program should report this, and not print anything else out.</p>
+<p>By the <em>arguments</em>, we refer to the strings in the array <code>String[] args</code> that is passed to the main method.</p>
+<p>Some guidelines:</p>
+<ul>
+<li><p>You should use a FileReader wrapped in a BufferedReader to read from the first file.</p></li>
+<li><p>You should use a FileWriter to write to the second file.</p></li>
+<li><p>Number the lines of the file starting from 1.</p></li>
+<li><p>For our purposes here, a word is a consecutive sequence of letters that appear in a line (of a file), such that in the line where the sequence appears, there is no letter before the sequence, and no letter after the sequence. A letter is one of the characters a, b, c, …, z, or one of the characters A, B, C, …, Z.</p></li>
+<li><p>Words should be considered in a case-insensitive way: two words that differ only in terms of capitalization should be considered the same word.</p></li>
+<li><p>You should use an instance of <code>HashMap&lt;String,Set&lt;Integer&gt;&gt;</code> to keep track of each word that has been encountered, along with the line numbers where the word has appeared.</p></li>
+<li><p>Place all of your code in a file called CountWords.java.</p></li>
+</ul>
+<p>Your program should print out the words <strong>in sorted order</strong> and in lowercase. Please follow the example.</p>
+<p>Example input (placed into a file and specified as the first argument):</p>
+<pre><code>  Joey ate an apple; then,
+  Joey ate two apples.
+  Apples were eaten by Joey---in total, 3.
+  Hooray for the apple-eater!!!</code></pre>
+<p>Example output (to be printed to the screen and written to the file specified as the second argument):</p>
+<pre><code>  an: line(s) 1
+  apple: line(s) 1 4
+  apples: line(s) 2 3
+  ate: line(s) 1 2
+  by: line(s) 3
+  eaten: line(s) 3
+  eater: line(s) 4
+  for: line(s) 4
+  hooray: line(s) 4
+  in: line(s) 3
+  joey: line(s) 1 2 3
+  the: line(s) 4
+  then: line(s) 1
+  total: line(s) 3
+  two: line(s) 2
+  were: line(s) 3</code></pre></li>
+</ul>
+</body>
+</html>
